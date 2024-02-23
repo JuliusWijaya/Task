@@ -1,0 +1,80 @@
+﻿@model IEnumerable<BiodataCRUD.BIODATA>
+
+@{
+    ViewBag.Title = "Biodata";
+    ViewBag.Message = "";
+    int i = 1;
+}
+
+@if (ViewBag.Message == null)
+{
+
+<p class="alert alert-success" role="alert">
+    @ViewBag.Message = "Data berhasil ditambahkan";
+</p>
+}
+
+<div class="row" style="margin: 2rem 0;">
+    <div class="col-md-2">
+        <a href="Home/Create" class="btn btn-primary btn-sm">
+            Tambah Data
+        </a>
+    </div>
+    <div class="col-md-offset-5">
+        <h3>Daftar Biodata</h3>
+    </div>
+</div>
+
+<table class="table table-bordered table-responsive">
+    <tr>
+        <th class="text-center">NO</th>
+        <th class="text-center">
+            NAME
+        </th>
+        <th class="text-center">
+            GENDER
+        </th>
+        <th class="text-center">
+            BIRTH
+        </th>
+        <th class="text-center">
+            HOME TOWN
+        </th>
+        <th class="text-center">
+            ACTION
+        </th>
+    </tr>
+
+    @if (Model != null && Model.Count() > 0)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@(i++)</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.birth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hometown)
+                </td>
+                <td class="text-center">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id })|
+                    @Html.ActionLink("Detail", "Detail", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="6" class="text-center text-danger"><strong>Data tidak ditemukan!</strong></td>
+        </tr>
+    }
+</table>

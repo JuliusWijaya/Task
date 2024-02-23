@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BIODATADBModelStoreContainer" CdmEntityContainer="BIODATADBContext">
+    <EntitySetMapping Name="BIODATAs">
+      <EntityTypeMapping TypeName="BIODATADBModel.BIODATA">
+        <MappingFragment StoreEntitySet="BIODATA">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="birth" ColumnName="birth" />
+          <ScalarProperty Name="hometown" ColumnName="hometown" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
